@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
       get '/me', to: 'auth#show'
       resources :users
-      resources :equities
+      resources :stocks
     end
   end
 end

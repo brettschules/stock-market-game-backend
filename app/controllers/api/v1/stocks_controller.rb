@@ -1,4 +1,4 @@
-class Api::V1::AuthController < EquitiesController
+class Api::V1::AuthController < StocksController
   def index
     render json: User.all
   end
@@ -8,7 +8,7 @@ class Api::V1::AuthController < EquitiesController
   end
 
   def create
-    equitie = Equitie.new(equitie_params)
+    equitie = Stock.new(equitie_params)
     if equitie.save
       render json: {message: "Created Blog!", status: 200}
     else
@@ -27,5 +27,5 @@ class Api::V1::AuthController < EquitiesController
 end
 
 def equitie_params(*args)
-  params.require(:equitie).permit(args)
+  params.require(:stock).permit(args)
 end
