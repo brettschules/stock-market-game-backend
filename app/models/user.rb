@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :equities
+  has_many :stocks
 
   has_secure_password
 end

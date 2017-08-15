@@ -1,4 +1,4 @@
-class Api::V1::AuthController < UsersController
+class Api::V1::UsersController < ApplicationController
   def index
     render json: User.all
   end
@@ -8,7 +8,7 @@ class Api::V1::AuthController < UsersController
   end
 
   def create
-    
+
   end
 
   def edit

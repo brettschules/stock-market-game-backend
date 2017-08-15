@@ -4,7 +4,7 @@ class Api::V1::AuthController < ApplicationController
   def show
     render json: {
       id: current_user.id,
-      username: current_user.username
+      username: current_user.username,
     }
   end
 
@@ -17,7 +17,7 @@ class Api::V1::AuthController < ApplicationController
       # if they do, render back a json response of the user info
       # issue token
       created_jwt = issue_token({id: user.id})
-      render json: {username: user.username, name: user.name, jwt: created_jwt}
+      render json: {user_id: user.id, username: user.username, name: user.name, account_balance: user.account_balance, image: user.image, jwt: created_jwt}
     else
       # otherwise, render back some error response
       render json: {
