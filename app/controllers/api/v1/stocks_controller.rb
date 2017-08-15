@@ -8,11 +8,12 @@ class Api::V1::StocksController < ApplicationController
   end
 
   def create
+    
     stock = Stock.new(stock_params)
     if stock.save
-      render json: {message: "Created Blog!", status: 200}
+      render json: {message: "New Order!", status: 200}
     else
-      render json: {message: blog.errors.full_message, status: 500}
+      render json: {message: stock.errors.full_message, status: 500}
     end
   end
 
@@ -24,8 +25,9 @@ class Api::V1::StocksController < ApplicationController
 
   def destroy
   end
-end
+private
+  def stock_params
+    params.require(:stock).permit(:name, :symbol, :price_purchased, :units, :status, :order, :user_id)
+  end
 
-def stock_params(*args)
-  params.require(:stock).permit(args)
 end
