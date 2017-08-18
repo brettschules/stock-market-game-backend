@@ -19,8 +19,10 @@ class Api::V1::AuthController < ApplicationController
     if user.present? && user.authenticate(params[:password])
       # if they do, render back a json response of the user info
       # issue token
+
       created_jwt = issue_token({id: user.id})
-      render json: {jwt: created_jwt}
+
+      render json: {jwt: created_jwt, user_id: user.id}
       # render json: {user_id: user.id, username: user.username, name: user.name, account_balance: user.account_balance, image: user.image, jwt: created_jwt}
     else
       # otherwise, render back some error response

@@ -6,12 +6,14 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def show
-    
-    render json: User.find(params[:id])
+    # byebug
+    @user = User.find_by(id: params[:id])
+    render json: @user
   end
 
 
   def create
+    # byebug
     @user = User.new(user_params)
 
     if @user.save
