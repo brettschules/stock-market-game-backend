@@ -5,6 +5,9 @@ class Api::V1::AuthController < ApplicationController
     render json: {
       id: current_user.id,
       username: current_user.username,
+      name: current_user.name,
+      account_balance: current_user.account_balance,
+      image: current_user.image
     }
   end
 
