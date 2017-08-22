@@ -26,7 +26,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    if @user.update(account_balance: params[:account_balance])
       render json: {
         user_id: @user
       }
@@ -46,6 +46,6 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def user_params
-      params.permit(:name, :username, :image, :account_balance, :password)
+      params.permit(:name, :username, :image, :password)
     end
   end

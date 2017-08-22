@@ -15,18 +15,6 @@ ActiveRecord::Schema.define(version: 20170811144256) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "equites", force: :cascade do |t|
-    t.string "name"
-    t.string "symbol"
-    t.float "price_purchased"
-    t.integer "units"
-    t.string "status"
-    t.string "order"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "stocks", force: :cascade do |t|
     t.string "name"
     t.string "symbol"
@@ -43,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170811144256) do
     t.string "username"
     t.string "name"
     t.string "password_digest"
-    t.float "account_balance"
+    t.float "account_balance", default: 100000.0
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
