@@ -50,6 +50,10 @@ GEM
     case_transform (0.2)
       activesupport
     concurrent-ruby (1.0.5)
+    dotenv (2.2.1)
+    dotenv-rails (2.2.1)
+      dotenv (= 2.2.1)
+      railties (>= 3.2, < 5.2)
     erubi (1.6.1)
     ffi (1.9.18)
     globalid (0.4.0)
@@ -135,6 +139,7 @@ DEPENDENCIES
   active_model_serializers
   bcrypt (~> 3.1.7)
   byebug
+  dotenv-rails
   jwt
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
@@ -144,6 +149,9 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
+
+RUBY VERSION
+   ruby 2.3.3p222
 
 BUNDLED WITH
    1.15.3
