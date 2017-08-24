@@ -13,7 +13,6 @@ class Api::V1::UsersController < ApplicationController
 
 
   def create
-    # byebug
     @user = User.new(user_params)
 
     if @user.save
@@ -46,6 +45,6 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def user_params
-      params.permit(:name, :username, :image, :password)
+      params.permit(:name, :username, :image, :password, :password_confirmation)
     end
   end
