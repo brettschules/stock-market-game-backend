@@ -9,3 +9,4 @@
 # User.create(name: "brett", username: "Brett", password: "Brett",password_confirmation: "Brett", account_balance: 100000.00, image: "")
 # Stock.create(name: "Verzion", symbol: "VZ", price_purchased: 50.75, units: 4, status: "Excuted", order:"Buy", user_id: 1)
 # Stock.create(name: "Amerigas", symbol: "APU", price_purchased: 47.70, units: 7, status: "Excuted", order:"Buy", user_id: 1)
+User.create(name: "Brett", username: "Brett", image: "", password:"Brett", password_confirmation:"Brett")

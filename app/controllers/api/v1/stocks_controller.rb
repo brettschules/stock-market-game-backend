@@ -8,7 +8,7 @@ class Api::V1::StocksController < ApplicationController
   end
 
   def create
-    
+
     stock = Stock.new(stock_params)
     if stock.save
       render json: {message: "New Order!", status: 200}
@@ -21,6 +21,14 @@ class Api::V1::StocksController < ApplicationController
   end
 
   def update
+    stock = Stock.find_by(id: params[:id])
+    if stock.update(units: params[:units], order: params[:order], status: params[:status])
+      render json: {
+        stock_id: stock
+      }
+    else
+      render json: stock.errors, status: :unprocessable
+    end
   end
 
   def destroy
