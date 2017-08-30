@@ -19,10 +19,11 @@ class Api::V1::StocksController < ApplicationController
 
   def edit
   end
+  # if stock.update(symbol: params[:symbol], price_purchased: params[:price_purchased], units: params[:units], status: params[:status], order: params[:order], user_id: params[:user_id])
 
   def update
     stock = Stock.find_by(id: params[:id])
-    if stock.update(units: params[:units], order: params[:order], status: params[:status])
+    if stock.update(status: params[:status], price_purchased: params[:price_purchased] )
       render json: {
         stock_id: stock
       }
@@ -35,7 +36,7 @@ class Api::V1::StocksController < ApplicationController
   end
 private
   def stock_params
-    params.require(:stock).permit(:name, :symbol, :price_purchased, :units, :status, :order, :user_id)
+    params.require(:stock).permit(:name, :symbol, :price_purchased, :units, :status, :order, :user_id, :created_at)
   end
 
 end
